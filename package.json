@@ -1,5 +1,5 @@
 {
-  "name": "cc-edict",
+  "name": "@leonsilicon/cc-cedict",
   "version": "0.0.0",
   "description": "CC-CEDICT (Chinese-English dictionary) parsed as JSON, with the Ohm grammar used to produce it.",
   "keywords": [
@@ -35,7 +35,6 @@
       "import": "./index.js"
     },
     "./package.json": "./package.json",
-    "./cedict_1_0_ts_utf-8_mdbg.json": "./cedict_1_0_ts_utf-8_mdbg.json",
     "./grammar": {
       "types": "./dist/grammar.d.mts",
       "import": "./dist/grammar.mjs"
