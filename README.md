@@ -1,4 +1,4 @@
-# cc-edict
+# @leonsilicon/cc-cedict
 
 [CC-CEDICT](https://www.mdbg.net/chinese/dictionary?page=cc-cedict) — the community-maintained Chinese ↔ English dictionary — parsed into JSON, plus the [Ohm](https://ohmjs.org) grammar that produced it.
 
@@ -9,8 +9,8 @@
 ## Installation
 
 ```bash
-npm install cc-edict
-# or: pnpm add cc-edict / yarn add cc-edict / bun add cc-edict
+npm install @leonsilicon/cc-cedict
+# or: pnpm add @leonsilicon/cc-cedict / yarn add @leonsilicon/cc-cedict / bun add @leonsilicon/cc-cedict
 ```
 
 Requires Node.js 22.12+ (or any runtime that supports the `with { type: "json" }` import attribute).
@@ -20,7 +20,7 @@ Requires Node.js 22.12+ (or any runtime that supports the `with { type: "json" }
 ### Read the dictionary
 
 ```ts
-import cedict from "cc-edict";
+import cedict from "@leonsilicon/cc-cedict";
 
 console.log(cedict.entries.length); // 124_933
 console.log(cedict.metadata.version); // "1"
@@ -53,7 +53,7 @@ interface CedictEntry {
 ### Use the Ohm grammar
 
 ```ts
-import grammar from "cc-edict/grammar";
+import grammar from "@leonsilicon/cc-cedict/grammar";
 import * as ohm from "ohm-js";
 
 const g = ohm.grammar(grammar);
@@ -63,7 +63,7 @@ if (match.succeeded()) {
 }
 ```
 
-`cc-edict/grammar` is a default-exported string containing the raw Ohm source. The grammar defines these rules (see [`grammar.ohm`](./grammar.ohm) for the full source):
+`@leonsilicon/cc-cedict/grammar` is a default-exported string containing the raw Ohm source. The grammar defines these rules (see [`grammar.ohm`](./grammar.ohm) for the full source):
 
 | Rule           | Matches                                  |
 | -------------- | ---------------------------------------- |

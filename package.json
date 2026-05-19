@@ -12,15 +12,15 @@
     "ohm",
     "pinyin"
   ],
-  "homepage": "https://github.com/leonsilicon/cc-edict#readme",
+  "homepage": "https://github.com/leonsilicon/cc-cedict#readme",
   "bugs": {
-    "url": "https://github.com/leonsilicon/cc-edict/issues"
+    "url": "https://github.com/leonsilicon/cc-cedict/issues"
   },
   "license": "MIT",
   "author": "Leon Si <leon@leonsilicon.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leonsilicon/cc-edict.git"
+    "url": "git+https://github.com/leonsilicon/cc-cedict.git"
   },
   "files": [
     "dist",

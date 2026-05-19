@@ -3,15 +3,13 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "cc-edict",
-      "dependencies": {
-        "es-main": "^1.4.0",
-        "ohm-js": "^17.5.0",
-      },
+      "name": "@leonsilicon/cc-cedict",
       "devDependencies": {
         "@types/node": "^25.6.2",
         "@typescript/native-preview": "7.0.0-dev.20260509.2",
         "bumpp": "^11.1.0",
+        "es-main": "^1.4.0",
+        "ohm-js": "^17.5.0",
         "typescript": "^6.0.3",
         "unplugin-raw": "^0.7.0",
         "vite-plus": "^0.1.20",
