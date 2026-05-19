@@ -1,0 +1,46 @@
+CCEDict {
+  // All rules are lexical (lowercase) — CC-CEDICT is whitespace-significant
+  // and syntactic rules would auto-skip the very spaces that delimit fields.
+
+  file = line*
+  line = metadataLine | commentLine | entryLine | blankLine
+
+  // `#! key=value` — versioning/metadata header lines.
+  metadataLine  = "#!" hs metadataKey "=" metadataValue eolOrEnd
+  metadataKey   = (~"=" ~eolChar any)+
+  metadataValue = (~eolChar any)*
+
+  // `# anything` — free-form comment lines. Must come after metadataLine in
+  // alternatives because "#!" is a prefix of "#".
+  commentLine = "#" commentRest eolOrEnd
+  commentRest = (~eolChar any)*
+
+  // 漢字 汉字 [pin1 yin1] /def1/def2/.../
+  entryLine = traditional " " simplified " " "[" pinyin "]" " " "/" definitions "/" eolOrEnd
+
+  traditional  = headwordChar+
+  simplified   = headwordChar+
+  headwordChar = ~" " ~eolChar any
+
+  pinyin     = pinyinChar+
+  pinyinChar = ~"]" ~eolChar any
+
+  definitions = definition ("/" definition)*
+  definition  = definitionChar+
+  // Definitions are slash-separated; an internal `/` would be ambiguous, so it
+  // is excluded. Everything else (brackets, pipes, punctuation, Unicode) is
+  // accepted to keep the grammar tolerant of CC-CEDICT's free-form glosses.
+  definitionChar = ~"/" ~eolChar any
+
+  // A blank line is a single newline — required to be non-empty so `line*`
+  // remains non-nullable.
+  blankLine = eol
+
+  // Most lines end with a newline, but the final line of a file may omit it.
+  // Using `&end` lets us terminate without consuming, so `line*` halts cleanly.
+  eolOrEnd = eol | &end
+
+  hs      = " "*
+  eol     = "\r\n" | "\n" | "\r"
+  eolChar = "\n" | "\r"
+}
